@@ -1,0 +1,44 @@
+def format_duration(seconds):
+    # sl={'years':0,'days':0,'hours':0,'minutes':0,'seconds':0}
+    sl = {}
+    answer = []
+    if seconds == 0:
+        return 'now'
+    years = seconds//(365*24*3600)
+    sl['years'] = years
+    seconds = seconds - years*(365*24*3600)
+
+    day = seconds // (24*3600)
+    sl['days'] = day
+    seconds = seconds - day*24*3600
+
+    hours = seconds // 3600
+    sl['hours'] = hours
+    seconds = seconds - 3600*hours
+
+    minutes = seconds // 60
+    sl['minutes'] = minutes
+
+    sl['seconds'] = seconds- 60*minutes
+
+    for i in sl.keys():
+        if sl[i] == 0:
+            continue
+        if sl[i] == 1:
+            m = str(1)+ ' '+ str(i[:-1])
+            answer.append(m)
+        else:
+            m = str(sl[i]) + ' ' + str(i)
+            answer.append(m)
+
+
+    if len(answer) == 1:
+        return  answer[0]
+    k=''
+    for i in range(0,len(answer)):
+        if i == len(answer)-2:
+            k += answer[i] + ' and ' + answer[i+1]
+            return k
+        else:
+            k += answer[i]+', '
+print(format_duration(3662))
