@@ -1,0 +1,19 @@
+def josephus(items, k):
+    if items == []:
+        return []
+    answer = []
+    chet = 0
+    while len(items) != 1:
+        for i in range(0, len(items)):
+            if i > len(items) - 1:
+                break
+            chet += 1
+
+            if chet == k:
+                answer.append(items.pop(i))
+                if i == len(items):
+                    chet = 0
+                else:
+                    chet = 1
+    answer += items
+    return answer
