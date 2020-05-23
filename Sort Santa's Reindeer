@@ -1,0 +1,17 @@
+def sort_reindeer(reindeer_names):
+    surname = []
+    answer = []
+
+    for i in reindeer_names:
+        i = i.split()
+        surname.append(i[1])
+    surname.sort()
+
+    for s in surname:
+        for poz in range(0,len(reindeer_names)):
+            if s in reindeer_names[poz]:
+                answer.append(reindeer_names[poz])
+                reindeer_names.pop(poz)
+                break
+
+    return (answer)
