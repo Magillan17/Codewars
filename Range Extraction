@@ -1,0 +1,30 @@
+https://www.codewars.com/kata/51ba717bb08c1cd60f00002f/train/python
+
+def solution(args):
+    print(args)
+    answer =''
+    array = []
+    for i in range(len(args)):
+        array.append(args[i])
+        if i < len(args)-1:
+            if args[i+1] == args [i] +1:
+                continue
+            if len(array) == 1:
+                answer += str(array[0]) + ','
+                array = []
+            elif len(array) == 2:
+                answer += str(array[0])+','+str(array[1])+','
+                array = []
+            elif len(array)>2:
+                answer += str(array[0]) + '-' + str(array[-1]) + ','
+                array = []
+        else:
+            if len(array) == 1:
+                answer += str(array[0])
+            elif len(array) == 2:
+                answer += str(array[0]) + ',' + str(array[1])
+            else:
+                answer += str(array[0]) + '-' + str(array[-1])
+
+
+    return answer
