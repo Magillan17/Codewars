@@ -1,1 +1,1 @@
-# Codewars
+My solution "kata" from Codewars.
