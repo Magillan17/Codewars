@@ -1,0 +1,16 @@
+""" Оcновная идея того, что тупая генерация через for и счетчик объемозатратно. Идея решения в создание числа которое в len(a)//2 ( в зависимости четное или 
+нечетное) и склейки его с его зеркальной копией."""
+
+
+
+def palin(a,b):
+    if a % 2 == 0:
+        answer = 10**(a//2-1)
+        answer += b-1
+        answer = str(answer) + str(answer)[::-1]
+    else:
+        answer = 10 ** (a // 2 )
+        answer += b - 1
+        answer = str(answer) + str(answer)[::-1][1::]
+
+    return int(answer)
