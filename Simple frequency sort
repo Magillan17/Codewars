@@ -1,0 +1,29 @@
+#https://www.codewars.com/kata/5a8d2bf60025e9163c0000bc/train/python
+
+def solve(arr):
+    num = []
+    count = []
+
+    for n in arr:
+        if n in num:
+            continue
+        else:
+            num += [n]
+            count += [arr.count(n)]
+
+    for i in range(len(count)):
+        for j in range(0, len(count) - 1 - i):
+            if count[j] < count[j + 1]:
+                count[j], count[j + 1] = count[j + 1], count[j]
+                num[j], num[j + 1] = num[j + 1], num[j]
+            elif count[j] == count[j + 1] and num[j] > num[j + 1]:
+                count[j], count[j + 1] = count[j + 1], count[j]
+                num[j], num[j + 1] = num[j + 1], num[j]
+
+    answer = []
+
+    for k in range(len(count)):
+        for m in range(count[k]):
+            answer.append(num[k])
+
+    return answer
