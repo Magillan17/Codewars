@@ -1,0 +1,364 @@
+# https://www.codewars.com/kata/525c7c5ab6aecef16e0001a5/train/python
+def parse_int(string):
+    string = string.replace("-",' ')
+    answer = 0
+    if string == 'zero':
+        return 0
+    elif string == 'one million':
+        return 1000000
+    elif 'thousand' in string:
+        string = string.split(' thousand')
+        if len(string) > 1:
+            string[0] = string[0].split()
+            string[1] = string[1].split()
+            string[0].append(' ')
+            string[1].append(' ')
+            print(string)
+            for w in range(len(string[0]) - 1):
+                if  string[0][w] == 'one':
+                    if string[0][w + 1] == 'hundred':
+                        answer += 100 * 1000
+                    else:
+                        answer += 1* 1000
+                elif string[0][w] == 'two':
+                    if string[0][w + 1] == 'hundred':
+                        answer += 200 * 1000
+                    else:
+                        answer += 2* 1000
+                elif string[0][w] == 'three':
+                    if string[0][w + 1] == 'hundred':
+                        answer += 300 * 1000
+                    else:
+                        answer += 3* 1000
+                elif string[0][w] == 'four':
+                    if string[0][w + 1] == 'hundred':
+                        answer += 400 * 1000
+                    else:
+                        answer += 4 * 1000
+                elif string[0][w] == 'five':
+                    if string[0][w + 1] == 'hundred':
+                        answer += 500 * 1000
+                    else:
+                        answer += 5 * 1000
+                elif string[0][w] == 'six':
+                    if string[0][w + 1] == 'hundred':
+                        answer += 600 * 1000
+                    else:
+                        answer += 6* 1000
+                elif string[0][w] == 'seven':
+                    if string[0][w + 1] == 'hundred':
+                        answer += 700 * 1000
+                    else:
+                        answer += 7* 1000
+                elif string[0][w] == 'eight':
+                    if string[0][w + 1] == 'hundred':
+                        answer += 800 * 1000
+                    else:
+                        answer += 8 * 1000
+                elif string[0][w] == 'nine':
+                    if string[0][w + 1] == 'hundred':
+                        answer += 900 * 1000
+                    else:
+                        answer += 9* 1000
+                elif string[0][w] == 'ten':
+                    answer += 10*1000
+                elif string[0][w] == 'twenty':
+                    answer += 20 * 1000
+                elif string[0][w] == 'thirty':
+                    answer += 30 * 1000
+                elif string[0][w] == 'forty':
+                    answer += 40 * 1000
+                elif string[0][w] == 'fifty':
+                    answer += 50 * 1000
+                elif string[0][w] == 'sixty':
+                    answer += 60 * 1000
+                elif string[0][w] == 'seventy':
+                    answer += 70 * 1000
+                elif string[0][w] == 'eighty':
+                    answer += 80 * 1000
+                elif string[0][w] == 'ninety':
+                    answer += 90 * 1000
+                elif string[0][w] == 'eleven':
+                    answer += 11 * 1000
+                elif string[0][w] == 'twelve':
+                    answer += 12 * 1000
+                elif string[0][w] == 'thirteen':
+                    answer += 13 * 1000
+                elif string[0][w] == 'fourteen':
+                    answer += 14     * 1000
+                elif string[0][w] == 'fifteen':
+                    answer += 15 * 1000
+                elif string[0][w] == 'sixteen':
+                    answer += 16 * 1000
+                elif string[0][w] == 'seventeen':
+                    answer += 17 * 1000
+                elif string[0][w] == 'eighteen':
+                    answer += 18 * 1000
+                elif string[0][w] == 'nineteen':
+                    answer += 19 * 1000
+
+            for w in range(len(string[1]) - 1):
+                if  string[1][w] == 'one':
+                    if string[1][w + 1] == 'hundred':
+                        answer += 100
+                    else:
+                        answer += 1
+                elif string[1][w] == 'two':
+                    if string[1][w + 1] == 'hundred':
+                        answer += 200
+                    else:
+                        answer += 2
+                elif string[1][w] == 'three':
+                    if string[1][w + 1] == 'hundred':
+                        answer += 300
+                    else:
+                        answer += 3
+                elif string[1][w] == 'four':
+                    if string[1][w + 1] == 'hundred':
+                        answer += 400
+                    else:
+                        answer += 4
+                elif string[1][w] == 'five':
+                    if string[1][w + 1] == 'hundred':
+                        answer += 500
+                    else:
+                        answer += 5
+                elif string[1][w] == 'six':
+                    if string[1][w + 1] == 'hundred':
+                        answer += 600
+                    else:
+                        answer += 6
+                elif string[1][w] == 'seven':
+                    if string[1][w + 1] == 'hundred':
+                        answer += 700
+                    else:
+                        answer += 7
+                elif string[1][w] == 'eight':
+                    if string[1][w + 1] == 'hundred':
+                        answer += 800
+                    else:
+                        answer += 8
+                elif string[1][w] == 'nine':
+                    if string[1][w + 1] == 'hundred':
+                        answer += 900
+                    else:
+                        answer += 9
+                elif string[1][w] == 'ten':
+                    answer += 10
+                elif string[1][w] == 'twenty':
+                    answer += 20
+                elif string[1][w] == 'thirty':
+                    answer += 30
+                elif string[1][w] == 'forty':
+                    answer += 40
+                elif string[1][w] == 'fifty':
+                    answer += 50
+                elif string[1][w] == 'sixty':
+                    answer += 60
+                elif string[1][w] == 'seventy':
+                    answer += 70
+                elif string[1][w] == 'eighty':
+                    answer += 80
+                elif string[1][w] == 'ninety':
+                    answer += 90
+                elif string[1][w] == 'eleven':
+                    answer += 11
+                elif string[1][w] == 'twelve':
+                    answer += 12
+                elif string[1][w] == 'thirteen':
+                    answer += 13
+                elif string[1][w] == 'fourteen':
+                    answer += 14
+                elif string[1][w] == 'fifteen':
+                    answer += 15
+                elif string[1][w] == 'sixteen':
+                    answer += 16
+                elif string[1][w] == 'seventeen':
+                    answer += 17
+                elif string[1][w] == 'eighteen':
+                    answer += 18
+                elif string[1][w] == 'nineteen':
+                    answer += 19
+        else:
+            string = string.split()
+            string.append(' ')
+            for w in range(len(string) - 1):
+                if string[w] == 'one':
+                    if string[w + 1] == 'hundred':
+                        answer += 100 * 1000
+                    else:
+                        answer += 1 * 1000
+                elif string[w] == 'two':
+                    if string[w + 1] == 'hundred':
+                        answer += 200 * 1000
+                    else:
+                        answer += 2 * 1000
+                elif string[w] == 'three':
+                    if string[w + 1] == 'hundred':
+                        answer += 300 * 1000
+                    else:
+                        answer += 3 * 1000
+                elif string[w] == 'four':
+                    if string[w + 1] == 'hundred':
+                        answer += 400 * 1000
+                    else:
+                        answer += 4 * 1000
+                elif string[w] == 'five':
+                    if string[w + 1] == 'hundred':
+                        answer += 500 * 1000
+                    else:
+                        answer += 5 * 1000
+                elif string[w] == 'six':
+                    if string[w + 1] == 'hundred':
+                        answer += 600 * 1000
+                    else:
+                        answer += 6 * 1000
+                elif string[w] == 'seven':
+                    if string[w + 1] == 'hundred':
+                        answer += 700 * 1000
+                    else:
+                        answer += 7 * 1000
+                elif string[w] == 'eight':
+                    if string[w + 1] == 'hundred':
+                        answer += 800 * 1000
+                    else:
+                        answer += 8 * 1000
+                elif string[w] == 'nine':
+                    if string[w + 1] == 'hundred':
+                        answer += 900 * 1000
+                    else:
+                        answer += 9 * 1000
+                elif string[w] == 'ten':
+                    answer += 10 * 1000
+                elif string[w] == 'twenty':
+                    answer += 20 * 1000
+                elif string[w] == 'thirty':
+                    answer += 30 * 1000
+                elif string[w] == 'forty':
+                    answer += 40 * 1000
+                elif string[w] == 'fifty':
+                    answer += 50 * 1000
+                elif string[w] == 'sixty':
+                    answer += 60 * 1000
+                elif string[w] == 'seventy':
+                    answer += 70 * 1000
+                elif string[w] == 'eighty':
+                    answer += 80 * 1000
+                elif string[w] == 'ninety':
+                    answer += 90 * 1000
+                elif string[w] == 'eleven':
+                    answer += 11 * 1000
+                elif string[w] == 'twelve':
+                    answer += 12 * 1000
+                elif string[w] == 'thirteen':
+                    answer += 13 * 1000
+                elif string[w] == 'fourteen':
+                    answer += 14 * 1000
+                elif string[w] == 'fifteen':
+                    answer += 15 * 1000
+                elif string[w] == 'sixteen':
+                    answer += 16 * 1000
+                elif string[w] == 'seventeen':
+                    answer += 17 * 1000
+                elif string[w] == 'eighteen':
+                    answer += 18 * 1000
+                elif string[w] == 'nineteen':
+                    answer += 19 * 1000
+
+    # for number < 1000:
+    else:
+        string = string.split()
+        string.append(' ')
+        for w in range(len(string) - 1):
+            if string[w] == 'one':
+                if string[w + 1] == 'hundred':
+                    answer += 100
+                else:
+                    answer += 1
+            elif string[w] == 'two':
+                if string[w + 1] == 'hundred':
+                    answer += 200
+                else:
+                    answer += 2
+            elif string[w] == 'three':
+                if string[w + 1] == 'hundred':
+                    answer += 300
+                else:
+                    answer += 3
+            elif string[w] == 'four':
+                if string[w + 1] == 'hundred':
+                    answer += 400
+                else:
+                    answer += 4
+            elif string[w] == 'five':
+                if string[w + 1] == 'hundred':
+                    answer += 500
+                else:
+                    answer += 5
+            elif string[w] == 'six':
+                if string[w + 1] == 'hundred':
+                    answer += 600
+                else:
+                    answer += 6
+            elif string[w] == 'seven':
+                if string[w + 1] == 'hundred':
+                    answer += 700
+                else:
+                    answer += 7
+            elif string[w] == 'eight':
+                if string[w + 1] == 'hundred':
+                    answer += 800
+                else:
+                    answer += 8
+            elif string[w] == 'nine':
+                if string[w + 1] == 'hundred':
+                    answer += 900
+                else:
+                    answer += 9
+            elif string[w] == 'ten':
+                answer += 10
+            elif string[w] == 'twenty':
+                answer += 20
+            elif string[w] == 'thirty':
+                answer += 30
+            elif string[w] == 'forty':
+                answer += 40
+            elif string[w] == 'fifty':
+                answer += 50
+            elif string[w] == 'sixty':
+                answer += 60
+            elif string[w] == 'seventy':
+                answer += 70
+            elif string[w] == 'eighty':
+                answer += 80
+            elif string[w] == 'ninety':
+                answer += 90
+            elif string[w] == 'eleven':
+                answer += 11
+            elif string[w] == 'twelve':
+                answer += 12
+            elif string[w] == 'thirteen':
+                answer += 13
+            elif string[w] == 'fourteen':
+                answer += 14
+            elif string[w] == 'fifteen':
+                answer += 15
+            elif string[w] == 'sixteen':
+                answer += 16
+            elif string[w] == 'seventeen':
+                answer += 17
+            elif string[w] == 'eighteen':
+                answer += 18
+            elif string[w] == 'nineteen':
+                answer += 19
+
+    return answer
+
+
+
+
+
+
+
+
+
