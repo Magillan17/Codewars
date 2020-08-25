@@ -1,0 +1,15 @@
+# https://www.codewars.com/kata/5e0b72d2d772160011133654/train/python
+def solve(arr):
+    print(arr)
+    maks = max(arr)
+    mins = min(arr)
+    sr = sum(arr) - maks - mins
+
+    if maks >= mins + sr:
+        return mins + sr
+    elif maks == mins == sr:
+        return maks + maks // 2
+    elif maks == sr:
+        return maks + mins // 2
+    elif sr + mins > maks:
+        return maks + (-maks + sr + mins) // 2 
