@@ -1,0 +1,23 @@
+# https://www.codewars.com/kata/56b5afb4ed1f6d5fb0000991/train/python
+def revrot(st, size):
+    if len(st) < size or st == '' or size == 0:
+        return ''
+
+    k = len(st) // size
+    st = st[:size * k]
+    answer = ''
+    for i in range(0, len(st), size):
+        kysok = st[i: i + size]
+        s = 0
+        for j in range(len(kysok)):
+            s += int(kysok[j]) ** 3
+        if s % 2 == 0:
+            answer += kysok[::-1]
+
+        else:
+            answer += kysok[1:] + kysok[0]
+
+    return answer
+
+
+print(revrot("123456987654", 6))
