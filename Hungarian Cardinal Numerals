@@ -1,0 +1,70 @@
+# https://www.codewars.com/kata/58008f9897917feeec000a3e/train/python
+
+def hungarian_numeral(n):
+    if n == 0:
+        return 'nulla'
+    sl = {0: 'nulla', 1: 'egy', 2: 'kettő', 3: 'három', 4: 'négy', 5: 'öt', 6: 'hat', 7: 'hét', 8: 'nyolc', 9: 'kilenc',
+          10: 'tíz', 20: 'húsz', 30: 'harminc', 40: 'negyven', 50: 'ötven', 60: 'hatvan', 70: 'hetven', 80: 'nyolcvan',
+          90: 'kilencven'
+          }
+    path1 = n // 1000
+    path2 = n % 1000
+
+    if path1 == 0:
+        sl_1 = ''
+    elif path1 == 1:
+        sl_1 = 'ezer'
+    else:
+        sl_1 = ''
+        sotni = path1 // 100
+        edinic = path1 % 10
+        desyatki = path1 % 100 - edinic
+
+        if sotni > 0:
+            if sotni > 2:
+                sl_1 += sl[sotni] + 'száz'
+            elif sotni == 1:
+                sl_1 += 'száz'
+            elif sotni == 2:
+                sl_1 += 'kétszáz'
+        if desyatki > 0:
+            if edinic > 0 and desyatki == 10:
+                sl_1 += 'tizen'
+            elif edinic > 0 and desyatki == 20:
+                sl_1 += 'huszon'
+            else:
+                sl_1 += sl[desyatki]
+        if edinic > 0:
+            if edinic != 2:
+                sl_1 += sl[edinic]
+            else:
+                sl_1 += 'két'
+        sl_1 += 'ezer'
+
+    sl_2 = ''
+    sotni = path2 // 100
+    edinic = path2 % 10
+    desyatki = path2 % 100 - edinic
+
+    if sotni > 0:
+        if sotni > 2:
+            sl_2 += sl[sotni] + 'száz'
+        elif sotni == 1:
+            sl_2 += 'száz'
+        elif sotni == 2:
+            sl_2 += 'kétszáz'
+    if desyatki > 0:
+        if edinic > 0 and desyatki == 10:
+            sl_2 += 'tizen'
+        elif edinic > 0 and desyatki == 20:
+            sl_2 += 'huszon'
+        else:
+            sl_2 += sl[desyatki]
+    if edinic > 0:
+        sl_2 += sl[edinic]
+
+    if sl_2 != '' and sl_1 != '' and sl_1 != 'ezer':
+        answer = sl_1 + '-' + sl_2
+    else:
+        answer = sl_1 + sl_2
+    return answer
