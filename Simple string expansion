@@ -1,0 +1,28 @@
+
+https://www.codewars.com/kata/5a793fdbfd8c06d07f0000d5
+def solve(a):
+    kolvo = a.count('(')
+    answer = ''
+    while kolvo > 0:
+        l = ''
+        k = 0
+        for i in range(len(a)):
+            if a[i] == '(':
+                k += 1
+                if k == kolvo:
+                    index_s = i
+                continue
+            elif a[i] == ')':
+                index_f = i
+                break
+            if k == kolvo:
+                l += a[i]
+        answer = l + answer
+        if a[index_s - 1].isdigit():
+            answer *= int(a[index_s - 1])
+            a = a[:index_s - 1] + a[index_f + 1:]
+        else:
+            a = a[:index_s] + a[index_f + 1:]
+        kolvo -= 1
+    answer = a + answer
+    return answer
