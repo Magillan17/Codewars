@@ -1,0 +1,27 @@
+# https://www.codewars.com/kata/53db96041f1a7d32dc0004d2/train/python
+
+def done_or_not(array):
+    for i in array:
+        print(i)
+        if len(set(i)) != len(i):
+            return 'Try again!'
+
+    for stolbec in range(0,9):
+        p = []
+        for stroka in range(0, 9):
+            if array[stroka][stolbec] not in p:
+                p.append(array[stroka][stolbec])
+            else:
+                return 'Try again!'
+
+
+    sl = {}
+    for stroka in range(0, 9):
+        for stolbec in range(0, 9):
+            if (stroka // 3, stolbec // 3) not in sl:
+                sl[(stroka // 3, stolbec // 3)] = []
+            elif array[stroka][stolbec] in sl[(stroka // 3, stolbec // 3)]:
+                return 'Try again!'
+            else:
+                sl[(stroka // 3, stolbec // 3)].append(array[stroka][stolbec])
+    return 'Finished!'
