@@ -1,0 +1,42 @@
+# https://www.codewars.com/kata/5ef9ca8b76be6d001d5e1c3e/train/python
+
+def encode(string):
+    answer = ''
+    arr = [ord(i) for i in list(string)]
+    for i in range(len(arr)):
+        num = ''
+        while arr[i] != 0:
+            num = str(arr[i] % 2) + num
+            arr[i] //= 2
+        num = '0' * (8 - len(num)) + num
+        for i in num:
+            answer += i * 3
+
+    return answer
+
+
+print(encode("hey"))
+
+
+def decode(bits):
+    correct_bits = ''
+    for i in range(0, len(bits), 3):
+        if str(bits)[i:i + 3].count('1') > str(bits)[i:i + 3].count('0'):
+            correct_bits += "1"
+        else:
+            correct_bits += "0"
+
+    bytes = []
+    for i in range(0, len(correct_bits), 8):
+        bytes.append(correct_bits[i: i + 8])
+    for i in range(len(bytes)):
+        s = 0
+        for j in range(len(bytes[i])):
+            s += int(bytes[i][j]) * 2 ** (len(bytes[i]) - 1 - j)
+
+        bytes[i] = chr(s)
+
+    return ''.join(bytes)
+
+
+print(decode("100111111000111001000010000111111000000111001111000111110110111000010111"))
