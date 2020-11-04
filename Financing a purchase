@@ -1,0 +1,17 @@
+# https://www.codewars.com/kata/59c68ea2aeb2843e18000109/train/python
+
+
+def amort(rate, s, term, num_payments):
+
+    r = rate / 12 / 100
+    p = s *  r * (1 + r) ** term / ( (1 + r) ** term - 1)  # payment per month
+
+    for i in range(num_payments):
+        summa_before_payment =  s * r
+        s = s + summa_before_payment - p
+
+    answer = 'num_payment ' + str(num_payments) + ' c ' + str(round(p)) + ' princ ' + \
+             str(round(p - summa_before_payment)) + ' int ' + str(round(summa_before_payment))\
+             + ' balance '+ str(round(s))
+
+    return answer
