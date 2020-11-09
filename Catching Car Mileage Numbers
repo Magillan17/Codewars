@@ -1,0 +1,49 @@
+# https://www.codewars.com/kata/52c4dd683bfd3b434c000292/train/python
+
+def is_interesting(number, awesome_phrases):
+    if number <= 97:
+        return 0
+    elif number == 98 or number == 99:
+        return 1
+
+    if palindrom(number):
+        return 2
+    elif zeros(number):
+        return 2
+    elif onedigit(number):
+        return 2
+    elif increment(number):
+        return 2
+    elif number in awesome_phrases:
+        return 2
+
+    if palindrom(number + 1) or palindrom(number + 2):
+        return 1
+    elif zeros(number + 1) or zeros(number + 2):
+        return 1
+    elif onedigit(number + 1) or onedigit(number + 2):
+        return 1
+    elif increment(number + 1) or increment(number + 2):
+        return 1
+    elif number + 1 in awesome_phrases or number + 2 in awesome_phrases:
+        return 1
+
+    return 0
+
+
+def palindrom(number):
+    return str(number) == str(number)[::-1]
+
+
+def zeros(number):
+    return '0' * len(str(number)[1:]) == str(number)[1:]
+
+
+def onedigit(number):
+    return len(str(number)) == str(number).count(str(number)[0])
+
+
+def increment(number):
+    stroka = '01234567890'
+    if str(number) in stroka or str(number)[::-1] in stroka:
+        return True
