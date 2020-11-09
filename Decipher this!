@@ -1,0 +1,21 @@
+# https://www.codewars.com/kata/581e014b55f2c52bb00000f8/train/python
+def decipher_this(string):
+    answer = ''
+    s = string.split()
+    for i in s:
+        if i.isdigit():
+            answer += chr(int(i)) + ' '
+        else:
+            for t in range(len(i) - 1):
+                if i[t + 1].isdigit() == False:
+                    answer += chr(int(i[:t + 1]))
+                    t = i[t + 1:]
+                    if len(t) > 2:
+                        t = t[-1] + t[1:-1] + t[0]
+                    else:
+                        t = t[::-1]
+                    answer += t + ' '
+                    break
+
+    return answer
+
