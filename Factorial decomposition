@@ -1,0 +1,34 @@
+# https://www.codewars.com/kata/5a045fee46d843effa000070/train/python
+
+sl = {1:[0,1], 2:[0, 1, 2]}
+dlina = 2
+def decomp(n):
+    global dlina
+    global sl
+    if dlina <= n :
+        for i in range(dlina,n + 1):
+            number = i
+            sl[number] = sl[number - 1][:]
+            while i != 1:
+                for d in range(2,i + 1):
+
+                    if i % d == 0:
+                        i = i // d
+                        while d >= len(sl[number]):
+                            sl[number].append(0)
+                        sl[number][d] += 1
+                        break
+        dlina = n
+
+
+    array = sl[n]
+    answer = ''
+    for i in range(2, len(array)):
+        kolvo = array[i]
+        if kolvo == 0:
+            continue
+        if kolvo == 1:
+            answer += str(i) + ' * '
+        else:
+            answer += str(i) + '^' + str(kolvo) + ' * '
+    return answer[:-3]
