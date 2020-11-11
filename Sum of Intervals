@@ -1,0 +1,14 @@
+# https://www.codewars.com/kata/52b7ed099cdc285c300001cd/train/python
+
+def sum_of_intervals(intervals):
+    sl = {}
+    dlina = 0
+    for values in intervals:
+        for number in range(values[0], values[1]):
+            if number in sl:
+                continue
+            else:
+                sl[number] = True
+                dlina += 1
+
+    return dlina
